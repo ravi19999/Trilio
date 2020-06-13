@@ -33,7 +33,7 @@
     }
   }
 
-  &__input:focus+&__button {
+  &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
   }
 
@@ -62,7 +62,7 @@
   align-items: center;
   align-self: stretch;
 
-  &>* {
+  & > * {
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
@@ -71,7 +71,7 @@
     align-items: center;
   }
 
-  &>*:hover {
+  & > *:hover {
     background-color: var(--color-grey-light-2);
   }
 
@@ -113,11 +113,23 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and(max-width:$bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and(max-width:$bp-medium) {
+        margin: 0;
+      }
+    }
+    @media only screen and(max-width:$bp-medium) {
+      flex: 1;
     }
   }
 
@@ -130,8 +142,7 @@
     width: 3px;
     background-color: var(--color-primary);
     transform: scaleY(0);
-    transition: transform 0.2s, width cubic-bezier(1, 0, 0, 1) 0.2s,
-      background-color 0.1s;
+    transition: transform 0.2s, width cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
   }
 
   &__item:hover::before,
@@ -156,6 +167,11 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and(max-width:$bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
   }
 
   &__icon {
@@ -171,6 +187,10 @@
   color: var(--color-grey-light-1);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and(max-width:$bp-medium) {
+    display: none;
+  }
 }
 
 .gallery {
@@ -255,7 +275,7 @@
 
   & span {
     margin-left: 3px;
-    transition: margin-left .2s;
+    transition: margin-left 0.2s;
   }
 
   &:hover {
@@ -265,8 +285,6 @@
       margin-left: 8px;
     }
   }
-
-
 
   &:focus {
     outline: none;
@@ -291,7 +309,6 @@
   }
 }
 
-
 .paragraph:not(:last-of-type) {
   margin-bottom: 2rem;
 }
@@ -308,7 +325,7 @@
 
   &__item {
     flex: 0 0 50%;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
   }
 
   &__item::before {
@@ -330,7 +347,6 @@
   font-size: 1.3rem;
   color: var(--color-grey-dark-3);
 
-
   display: flex;
   align-items: center;
 
@@ -346,7 +362,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -359,6 +375,11 @@
   position: relative;
   overflow: hidden;
 
+  @media only screen and(max-width:$bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
   &__text {
     margin-bottom: 2rem;
     z-index: 10;
@@ -370,12 +391,15 @@
     align-items: center;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50%;
     margin-right: 1.5rem;
-
   }
 
   &__user-box {
@@ -391,7 +415,7 @@
 
   &__user-date {
     font-size: 1rem;
-    color: var(--color-grey-dark-3)
+    color: var(--color-grey-dark-3);
   }
 
   &__rating {
@@ -417,6 +441,10 @@
   padding: 3.5rem 0;
   text-align: center;
 
+  @media only screen and(max-width:$bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
     font-size: 1.2rem;
     font-weight: 300;
@@ -437,17 +465,15 @@
   overflow: hidden;
   cursor: pointer;
 
-  &>* {
+  & > * {
     display: inline-block;
     height: 100%;
     width: 100%;
-    transition: all .2s;
+    transition: all 0.2s;
   }
 
   &__visible {
-
     padding: 2rem 7.5rem;
-
   }
 
   &__invisible {
